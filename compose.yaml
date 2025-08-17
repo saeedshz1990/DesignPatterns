@@ -1,0 +1,7 @@
+﻿services:
+  designpatterns:
+    image: designpatterns
+    build:
+      context: .
+      dockerfile: DesignPatterns/Dockerfile
+
