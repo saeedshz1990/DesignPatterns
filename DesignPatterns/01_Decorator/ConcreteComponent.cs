@@ -7,3 +7,6 @@ public class ConcreteComponent :Component
         Console.WriteLine("ConcreteComponent.Operations()");
     }
 }
+
+//https://en.wikipedia.org/wiki/Decorator_pattern
+//https://refactoring.guru/design-patterns/decorator

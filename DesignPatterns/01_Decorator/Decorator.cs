@@ -8,4 +8,10 @@ public abstract class Decorator : Component
     {
         _component = component;
     }
+
+    public override void Operations()
+    {
+        _component.Operations();    
+        
+    }
 }
