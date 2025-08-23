@@ -1,16 +1,20 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using DesignPatterns._01_Decorator;
+﻿using DesignPatterns._01_Decorator;
+using DesignPatterns._02_Facade;
 
 ConcreteComponent concreteComponent =new ConcreteComponent();
 
-concreteComponent.Operations();
-Console.WriteLine("----------------------------------------------------------------");
+// concreteComponent.Operations();
+// Console.WriteLine("----------------------------------------------------------------");
 
-ConcreteComponent concreteComponent2 =new ConcreteComponent();
+// ConcreteComponent concreteComponent2 =new ConcreteComponent();
 
-ConcreteDecorator decorator = new ConcreteDecorator(concreteComponent2);
+// ConcreteDecorator decorator = new ConcreteDecorator(concreteComponent2);
 
-decorator.Operations();
+// decorator.Operations();
+// Console.WriteLine("----------------------------------------------------------------");
+
+Facade facade = new Facade();
+
+facade.DoSomething();
 
 Console.ReadLine();
