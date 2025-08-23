@@ -1,5 +1,6 @@
 ﻿using DesignPatterns._01_Decorator;
 using DesignPatterns._02_Facade;
+using DesignPatterns._03_Bridge.Abstractions;
 
 ConcreteComponent concreteComponent =new ConcreteComponent();
 
@@ -13,8 +14,13 @@ ConcreteComponent concreteComponent =new ConcreteComponent();
 // decorator.Operations();
 // Console.WriteLine("----------------------------------------------------------------");
 
-Facade facade = new Facade();
+// Facade facade = new Facade();
+//
+// facade.DoSomething();
 
-facade.DoSomething();
+
+Abstraction abstraction = new RefinedAbstraction();
+
+abstraction.Function();
 
 Console.ReadLine();
