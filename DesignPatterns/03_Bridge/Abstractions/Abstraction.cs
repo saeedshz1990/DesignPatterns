@@ -8,7 +8,7 @@ public abstract class Abstraction
 
     public virtual void Function()
     {
-        _implementor = new ConcereteImplementor();
+        _implementor = new ConcreteImplementor();
         
         _implementor.Implementation();
     }

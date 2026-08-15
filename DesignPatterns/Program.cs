@@ -1,65 +1,65 @@
 ﻿using DesignPatterns._01_Decorator;
 using DesignPatterns._02_Facade;
 using DesignPatterns._03_Bridge.Abstractions;
+using DesignPatterns._03_Bridge.Implementors;
 using DesignPatterns._04_Composite;
 using DesignPatterns._05_Flyweights;
 using Component = DesignPatterns._04_Composite.Component;
 
-ConcreteComponent concreteComponent =new ConcreteComponent();
+Console.WriteLine("=== Decorator ===");
 
-// concreteComponent.Operations();
-// Console.WriteLine("----------------------------------------------------------------");
+var concreteComponent = new ConcreteComponent();
+var decorator = new ConcreteDecorator(concreteComponent);
+decorator.Operations();
 
-// ConcreteComponent concreteComponent2 =new ConcreteComponent();
+Console.WriteLine();
+Console.WriteLine("=== Facade ===");
 
-// ConcreteDecorator decorator = new ConcreteDecorator(concreteComponent2);
+var facade = new Facade();
+facade.DoSomething();
 
-// decorator.Operations();
-// Console.WriteLine("----------------------------------------------------------------");
+Console.WriteLine();
+Console.WriteLine("=== Bridge ===");
 
-// Facade facade = new Facade();
-//
-// facade.DoSomething();
+var abstraction = new RefinedAbstraction();
+abstraction.Function();
 
+abstraction.Function();
 
-// Abstraction abstraction = new RefinedAbstraction();
-//
-// abstraction.Function();
+Console.WriteLine();
+Console.WriteLine("=== Composite ===");
 
-// DesignPatterns._04_Composite.Component component = new Composite("RootItem",new Component[]
-// {
-//     new Leaf("Leaf_Item_1"),
-//     new Leaf("Leaf_Item_2"),
-//     new Composite("Composite_1",new Component[]
-//     {
-//         new Leaf("leaf_Item_Composite_1-1"),
-//         new Leaf("leaf_Item_Composite_1-2"),
-//         new Leaf("leaf_Item_Composite_1-3"),
-//     }),
-//     new Leaf("Leaf_Item_3"),
-//     new Leaf("Leaf_Item_4"),
-// });
-//
-// component.Display(1);
+Component component = new Composite(
+    "RootItem",
+    new Component[]
+    {
+        new Leaf("Leaf_Item_1"),
+        new Leaf("Leaf_Item_2"),
+        new Composite(
+            "Composite_1",
+            new Component[]
+            {
+                new Leaf("Leaf_Item_Composite_1-1"),
+                new Leaf("Leaf_Item_Composite_1-2")
+            })
+    });
 
-FlyweightFactory flyweightFactory = new FlyweightFactory();
+component.Display(1);
 
-var result=flyweightFactory.GetFlyweight("saeed");
+Console.WriteLine();
+Console.WriteLine("=== Flyweight ===");
 
-result.Operation("extrinsicstate");
+var flyweightFactory = new FlyweightFactory();
 
-UnsharedConcreteFlyweight unsharedConcreteFlyweight = new UnsharedConcreteFlyweight
-(new List<Flyweight>
-{
-    flyweightFactory.GetFlyweight("Saeed"),
-    flyweightFactory.GetFlyweight("Mohammad"),
-    flyweightFactory.GetFlyweight("Reza"),
-    flyweightFactory.GetFlyweight("Ali"),
-    flyweightFactory.GetFlyweight("Hassan"),
-    
-});
+var flyweight = flyweightFactory.GetFlyweight("Saeed");
+flyweight.Operation("Extrinsic State");
 
-unsharedConcreteFlyweight.Operation("unsharedConcreteFlyweight");
+var unsharedFlyweight = new UnsharedConcreteFlyweight(
+    new List<Flyweight>
+    {
+        flyweightFactory.GetFlyweight("Saeed"),
+        flyweightFactory.GetFlyweight("Mohammad"),
+        flyweightFactory.GetFlyweight("Reza")
+    });
 
-
-Console.ReadLine();
+unsharedFlyweight.Operation("Unshared Flyweight");

@@ -1,0 +1,16 @@
+# IDE
+.vs/
+.idea/
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# User-specific
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
